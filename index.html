@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Math</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./assets/icon.png" type="image/x-icon">
+
+    <!-- Inside the head section of your HTML file -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Add a modal container -->
+    <div id="settingsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal" style="justify-self: flex-end;">&times;</span>
+            <!-- Your existing settings content goes here -->
+            <div class="digits">
+                <label>
+                    <select id="digitSelector">
+                        <option value="1">1 digit number</option>
+                        <option value="2">2 digit number</option>
+                        <option value="3">3 digit number</option>
+                        <option value="4">4 digit number</option>
+                        <option value="5">5 digit number</option>
+                        <option value="6">Random but highest 5 digit</option>
+                        <option value="7">5 digit to 15 digit</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="operations">
+                <ul>
+                    <li><label><input type="checkbox" id="additionCheckbox" checked> Addition (+)</label></li>
+                    <li><label><input type="checkbox" id="subtractionCheckbox" checked> Subtraction (-)</label></li>
+                    <li><label><input type="checkbox" id="multiplicationCheckbox" checked> Multiplication (*)</label>
+                    </li>
+                    <li><label><input type="checkbox" id="divisionCheckbox" checked> Division (/)</label></li>
+                    <li><label><input type="checkbox" id="squareCheckbox" checked> Square (^2)</label></li>
+                    <li><label><input type="checkbox" id="cubeCheckbox" checked> Cube (^3)</label></li>
+                    <li><label><input type="checkbox" id="sqrtCheckbox" checked> Square Root (√)</label></li>
+                </ul>
+            </div>
+
+            <audio id="backgroundMusic" loop controls>
+                <source src="./assets/background_music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <input type="file" id="uploadMusic" accept=".mp3">
+        </div>
+    </div>
+
+    <nav>
+        <div
+            style="background-color: #050040; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+            <h3 style="letter-spacing: 3px; color: #418bd0; text-align: center; margin: 0;" class="name">CODEX MATH</h3>
+            <button style="justify-self: flex-end;" class="settingsButton" id="settingsButton">Settings</button>
+        </div>
+    </nav>
+
+    <div>
+        <h1 class="head_text">
+            Test Your Math Skills with <br>
+            <span class="orange_gradient">CodexMath</span>
+        </h1>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div style="font-size: 100px;" id="question"></div>
+            <input type="text" id="answer" placeholder="Enter Your Answer" class="invisible-input">
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <a href="https://github.com/CodexUjayer" target="_blank">
+        <button style="justify-self: flex-end;" class="github_button" id="github_Button">Github</button>
+    </a>
+    <script src="script.js"></script>
+</body>
+
+</html>
